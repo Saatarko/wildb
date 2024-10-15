@@ -20,6 +20,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: celery -A wildberries_project worker
+    command:  celery -A wildberries_project worker -l info -P eventlet
     depends_on:
       - redis
