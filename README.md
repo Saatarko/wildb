@@ -15,11 +15,13 @@ Python 3.10+, Django, DRF, PostgreSQL, Celery, Redis, Docker
 3. Установить библиотеки. (в проекте использовался poetry)
    Для этого Вам нужно установить poetry - pip install poetry
    Затем для для установки всех библиотек  -   poetry install+
-4. Теперь начинаем запускать проект. Вначале устанавливаем и запускаем сервер Redis для этого нужно воспользоваться официальной документацией https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/
-5. Теперь запускаем celery командой - celery -A wildberries_project worker -l info -P eventlet 
-6. Теперь запускаем проект. Для запуска нужно запустить проект через manage.py  (python manage.py runserver)
+4. Устанавливаем PostgreSQL. Создаем новую базу данных. Затем добавляем нового пользователя и нужный привилегии для него https://www.postgresql.org/download/
+5. Заменяем в settings.py раздел DATABASES (устанавливаем нужное название базы/имя пользователя/пароль)
+6. Теперь начинаем запускать проект. Вначале устанавливаем и запускаем сервер Redis для этого нужно воспользоваться официальной документацией https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/
+7. Теперь запускаем celery командой - celery -A wildberries_project worker -l info -P eventlet 
+8. Теперь запускаем проект. Для запуска нужно запустить проект через manage.py  (python manage.py runserver)
   ( при запуске проекта в локальном виде  на адресе "0.0.0.0:8000"  нужно для входа использовать адрес "localhost:8000")
-7. Для перехода к API переходим ао адресу http://localhost:8000/api/swagger 
+9. Для перехода к API переходим ао адресу http://localhost:8000/api/swagger 
 
    Дополнительно. Команда для запуска сайта на сервере или через Docker 
    
@@ -38,16 +40,19 @@ API with two endpoints:
 Python 3.10+, Django, DRF, PostgreSQL, Celery, Redis, Docker
 
 # For local download you need:
+
 1. Download the application to your PC.
 2. Install a virtual environment with Python v3.10
 3. Install libraries. (poetry was used in the project)
 To do this, you need to install poetry - pip install poetry
 Then to install all the libraries - poetry install+
-4. Now we start running the project. First, install and run the Redis server. To do this, use the official documentation https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/
-5. Now run celery with the command - celery -A wildberries_project worker -l info -P eventlet
-6. Now run the project. To run, you need to run the project through manage.py (python manage.py runserver)
-(when running the project locally at the address "0.0.0.0:8000", you need to use the address "localhost:8000" to log in)
-7. To go to the API, go to the address http://localhost:8000/api/swagger
+4. Install PostgreSQL. Create a new database. Then add a new user and the necessary privileges for him https://www.postgresql.org/download/
+5. Replace the DATABASES section in settings.py (set the desired database name/username/password)
+6. Now start running the project. First, install and run the Redis server. To do this, use the official documentation https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/
+7. Now run celery with the command - celery -A wildberries_project worker -l info -P eventlet
+8. Now run the project. To run, you need to run the project through manage.py (python manage.py runserver)
+(when running the project locally at the address "0.0.0.0:8000" you need to use the address "localhost:8000" to log in)
+9. To go to the API, go to the address http://localhost:8000/api/swagger
 
 Additionally. Command to run the site on the server or via Docker
 
